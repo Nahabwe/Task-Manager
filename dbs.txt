@@ -1,0 +1,30 @@
+task_manager=# SELECT current_database(),current_user;
+ current_database | current_user
+------------------+--------------
+ task_manager     | u0_a205
+(1 row)
+
+task_manager=# \dt;
+          List of tables
+ Schema | Name  | Type  |  Owner
+--------+-------+-------+---------
+ public | tasks | table | u0_a205
+(1 row)
+
+
+
+
+
+~/backend/task-api $ cat db.js
+
+const { Pool } = require("pg");
+
+const pool = new Pool({
+  host: "localhost",
+  port: 5432,
+  database: "task_manager",
+  user: "postgres",
+  password: "kul2323"
+});
+
+module.exports = pool;
